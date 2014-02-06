@@ -2,8 +2,7 @@
 // YOUR CODE: Create your Zoo "object literal" and Animal "constructor" and "prototypes" here.
 //------------------------------------------------------------------------------------------------------------------
 
-// Class with initialize constructor
-var Zoo = {} // empty fn?
+var Zoo = {}
 
 // Truck in the animals
 Zoo.init = function(animals) {
@@ -13,25 +12,27 @@ Zoo.init = function(animals) {
 // count number of two-legged animals
 Zoo.bipeds = function() {
   var bipeds = []
-  for (var i = 0; i < this.animals.length; i++)
-  {
-    if(this.animals[i].legs == 2)
-    {
-      bipeds.push(animals[i])
+  for (var i = 0; i < this.animals.length; i++) {
+    if(this.animals[i].legs == 2){
+      bipeds.push(animals[i]);
     }
   }
+  console.log("Bipeds: " + bipeds);
+  console.log("Bipeds length: " + bipeds.length);
+  return bipeds;
 }
 
 // count number of four-legged animals
 Zoo.quadrupeds = function() {
   var quadrupeds = []
-  for (var i = 0; i < this.animals.length; i++)
-  {
-    if(this.animals[i].legs == 2)
-    {
-      quadrupeds.push(animals[i])
+  for (var i = 0; i < this.animals.length; i++) {
+    if(this.animals[i].legs == 4){
+      quadrupeds.push(animals[i]);
     }
   }
+  console.log("Quadrupeds: " + quadrupeds);
+  console.log("Quadrupeds length: " + quadrupeds.length);
+  return quadrupeds;
 }
 
 // Animals needs to have name and # of legs
@@ -47,6 +48,7 @@ Animal.prototype.identify = function(){
 
 // More prototype
 Animal.prototype.name = function(){
+  console.log(this.name);
   return this.name;
 };  // end of name prototype
 
@@ -77,10 +79,10 @@ var animals = [
 Zoo.init(animals);
 
 assert(
-  Zoo.bipeds().legs === 3, "the Zoo should have 3 bipeds"
+  Zoo.bipeds().length === 3, "the Zoo should have 3 bipeds"
 );
 assert(
-  Zoo.quadrupeds().legs === 2, "the Zoo should have 2 bipeds"
+  Zoo.quadrupeds().length === 2, "the Zoo should have 2 bipeds"
 );
 assert(
   animals[0].identify() === "I am a Human with 2 legs.", "humans have 2 legs"
