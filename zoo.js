@@ -9,6 +9,13 @@ Zoo.init = function(animals) {
   this.animals = animals
 }
 
+// Can do init together
+// Zoo = {
+//   init: function(animals) {
+//     this.animals = animals;
+//   }
+// }
+
 // count number of two-legged animals
 Zoo.bipeds = function() {
   var bipeds = []
